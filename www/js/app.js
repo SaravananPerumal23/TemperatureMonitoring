@@ -23,13 +23,13 @@ angular.module('ionicCharts', ['ionic', 'chart.js'])//'ngMockE2E',
   });
 })
 
-.config(function ($stateProvider, $urlRouterProvider, USER_ROLES) {
+.config(function ($stateProvider, $urlRouterProvider) {
   //$httpProvider.defaults.useXDomain = true;
 
   $stateProvider
   .state('login', {
     url: '/login',
-    templateUrl: 'Dashboard/Login.html',
+    templateUrl: 'app/Login/Login.html',
     controller: 'LoginController'
   })
   .state('main', {
@@ -41,7 +41,7 @@ angular.module('ionicCharts', ['ionic', 'chart.js'])//'ngMockE2E',
     url: 'main/dash',
     views: {
         'dash-tab': {
-          templateUrl: 'Dashboard/Dashboard.html',
+          templateUrl: 'app/Dashboard/Dashboard.html',
           controller: 'DashboardController'
         }
     }
@@ -61,16 +61,18 @@ angular.module('ionicCharts', ['ionic', 'chart.js'])//'ngMockE2E',
           templateUrl: 'Dashboard/admin.html'
         }
     },
-    data: {
-      authorizedRoles: [USER_ROLES.admin]
-    }
+    // data: {
+    //   authorizedRoles: [USER_ROLES.admin]
+    // }
   });
 
-  // Thanks to Ben Noblet!
-  $urlRouterProvider.otherwise(function ($injector, $location) {
-    var $state = $injector.get("$state");
-    $state.go("main.dash");
-  });
+$urlRouterProvider.otherwise('/login');
+
+  // // Thanks to Ben Noblet!
+  // $urlRouterProvider.otherwise(function ($injector, $location) {
+  //   var $state = $injector.get("$state");
+  //   $state.go("main.dash");
+  // });
 })
 
 //

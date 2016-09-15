@@ -2230,7 +2230,7 @@ var LOADING_TPL =
  * app.constant('$ionicLoadingConfig', {
  *   template: 'Default Loading Template...'
  * });
- * app.controller('AppCtrl', function($scope, $ionicLoading) {
+ * app.controller('MainController', function($scope, $ionicLoading) {
  *   $scope.showLoading = function() {
  *     //options default to values in $ionicLoadingConfig
  *     $ionicLoading.show().then(function(){
