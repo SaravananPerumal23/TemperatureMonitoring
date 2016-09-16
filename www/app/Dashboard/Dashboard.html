@@ -13,8 +13,15 @@
                   {{SensorPointInfo.SPointID}}
               </div> -->
 
-              <div class="item item-text-wrap" ng-repeat="sensor in sensorPointResponseData">
-                  <canvas id="line" class="chart chart-line" chart-data="{{sensorPointResponseData}}" chart-labels="{{DeviceID}}" legend="true" series="series" options="{showTooltips: false}"></canvas>
+              <!-- <div>
+                {{getArrayList(sensorPointResponseData, 'LastTempValueC',UnitInfo.ParentID)}}
+              </div> -->
+
+
+              <div class="item item-text-wrap">
+                  <canvas id="bar" class="chart chart-bar" chart-data="getArrayList(sensorPointResponseData, 'LastTempValueC', UnitInfo.UnitID);" chart-labels="labels" legend="true" series="series" options="{showTooltips: false}"></canvas>
+                  <!-- <canvas id="bar" class="chart chart-bar" chart-data="getArrayList(sensorPointResponseData, 'LastTempValueC', UnitInfo.UnitID)" chart-labels="getArrayList(sensorPointResponseData, 'DeviceID', UnitInfo.UnitID)" legend="true" series="getArrayList(sensorPointResponseData, 'DeviceID', UnitInfo.UnitID)" options="{showTooltips: false}"></canvas> -->
+                  <!-- <canvas id="bar" class="chart chart-line" chart-data="getArrayList(sensorPointResponseData, 'LastTempValueC', UnitInfo.UnitID)" chart-labels="getArrayList(sensorPointResponseData, 'DeviceID', UnitInfo.UnitID)" legend="true" series="getArrayList(sensorPointResponseData, 'DeviceID', UnitInfo.UnitID)" options="{showTooltips: false}"></canvas> -->
               </div>
 
 
@@ -48,8 +55,9 @@
       </div> -->
 
       <h2>Ionic GET Json Example</h2>
-      Current time: {{result}}
-      Current time: {{responseData.UnitItem}}
-      <textarea placeholder="txt" name="txtResponse" ng-model="sensorPointResponseData"/>
+      Current time: {{result}} </br>
+      Current time: {{responseData.UnitItem}} </br>
+
+
     </ion-content>
 </ion-view>
