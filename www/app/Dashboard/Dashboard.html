@@ -3,7 +3,33 @@
       <button class="button icon-left ion-log-out button-stable" ng-click="logout()">Logout</button>
     </ion-nav-buttons>
     <ion-content ng-controller="DashboardController">
-      <div class="card">
+      <div class="card" ng-repeat="UnitInfo in unitReponseData">
+          <div class="item item-divider">
+              {{UnitInfo.UnitID}}
+          </div>
+
+        <!--  <div class="card" ng-repeat="SensorPointInfo in sensorPointResponseData.SPointItem | filter: { ParentID: UnitInfo.UnitID}">
+              <div class="item item-divider">
+                  {{SensorPointInfo.SPointID}}
+              </div> -->
+
+              <div class="item item-text-wrap" ng-repeat="sensor in sensorPointResponseData">
+                  <canvas id="line" class="chart chart-line" chart-data="{{sensorPointResponseData}}" chart-labels="{{DeviceID}}" legend="true" series="series" options="{showTooltips: false}"></canvas>
+              </div>
+
+
+          <!-- </div> <div class="card" ng-repeat="SensorPointInfo in sensorPointResponseData.SPointItem | filter: { ParentID: UnitInfo.UnitID}">
+              <div class="item item-divider">
+                  {{SensorPointInfo.SPointID}}
+              </div>
+              <div class="item item-text-wrap">
+                  <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" legend="true" series="series" options="{showTooltips: false}"></canvas>
+              </div>
+          </div> -->
+
+      </div>
+
+      <!-- <div class="card">
           <div class="item item-divider">
               A line chart
           </div>
@@ -19,11 +45,11 @@
           <div class="item item-text-wrap">
               <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" legend="true" series="series" options="{showTooltips: false}"></canvas>
           </div>
-      </div>
+      </div> -->
 
       <h2>Ionic GET Json Example</h2>
       Current time: {{result}}
-      Current time: {{responseData}}
-      <textarea placeholder="txt" name="txtResponse" ng-model="responseData"/>
+      Current time: {{responseData.UnitItem}}
+      <textarea placeholder="txt" name="txtResponse" ng-model="sensorPointResponseData"/>
     </ion-content>
 </ion-view>
