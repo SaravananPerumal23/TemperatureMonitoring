@@ -1,63 +1,18 @@
-  <ion-view view-title="Charts Dashboard" name="dashboard-view">
-    <ion-nav-buttons side="right">
-      <button class="button icon-left ion-log-out button-stable" ng-click="logout()">Logout</button>
-    </ion-nav-buttons>
-    <ion-content ng-controller="DashboardController">
-      <div class="card" ng-repeat="UnitInfo in unitReponseData">
-          <div class="item item-divider">
-              {{UnitInfo.UnitID}}
-          </div>
+<ion-view view-title="Charts Dashboard" name="dashboard-view">
+  <ion-nav-buttons side="right">
+    <button class="button icon-left ion-log-out button-stable" ng-click="logout()">Logout</button>
+  </ion-nav-buttons>
 
-        <!--  <div class="card" ng-repeat="SensorPointInfo in sensorPointResponseData.SPointItem | filter: { ParentID: UnitInfo.UnitID}">
-              <div class="item item-divider">
-                  {{SensorPointInfo.SPointID}}
-              </div> -->
-
-              <!-- <div>
-                {{getArrayList(sensorPointResponseData, 'LastTempValueC',UnitInfo.ParentID)}}
-              </div> -->
-
-
-              <div class="item item-text-wrap">
-                  <canvas id="bar" class="chart chart-bar" chart-data="getArrayList(sensorPointResponseData, 'LastTempValueC', UnitInfo.UnitID);" chart-labels="labels" legend="true" series="series" options="{showTooltips: false}"></canvas>
-                  <!-- <canvas id="bar" class="chart chart-bar" chart-data="getArrayList(sensorPointResponseData, 'LastTempValueC', UnitInfo.UnitID)" chart-labels="getArrayList(sensorPointResponseData, 'DeviceID', UnitInfo.UnitID)" legend="true" series="getArrayList(sensorPointResponseData, 'DeviceID', UnitInfo.UnitID)" options="{showTooltips: false}"></canvas> -->
-                  <!-- <canvas id="bar" class="chart chart-line" chart-data="getArrayList(sensorPointResponseData, 'LastTempValueC', UnitInfo.UnitID)" chart-labels="getArrayList(sensorPointResponseData, 'DeviceID', UnitInfo.UnitID)" legend="true" series="getArrayList(sensorPointResponseData, 'DeviceID', UnitInfo.UnitID)" options="{showTooltips: false}"></canvas> -->
-              </div>
-
-
-          <!-- </div> <div class="card" ng-repeat="SensorPointInfo in sensorPointResponseData.SPointItem | filter: { ParentID: UnitInfo.UnitID}">
-              <div class="item item-divider">
-                  {{SensorPointInfo.SPointID}}
-              </div>
-              <div class="item item-text-wrap">
-                  <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" legend="true" series="series" options="{showTooltips: false}"></canvas>
-              </div>
-          </div> -->
-
+  <ion-content ng-controller="DashboardController">
+    <div class="card" ng-repeat="UnitInfo in unitReponseData">
+      <div class="item item-divider">
+        {{UnitInfo.UnitID}}
       </div>
-
-      <!-- <div class="card">
-          <div class="item item-divider">
-              A line chart
-          </div>
-
-          <div class="item item-text-wrap">
-              <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" legend="true" series="series" options="{showTooltips: false}"></canvas>
-          </div>
+      <div class="item item-text-wrap">
+        <!-- <canvas id="bar" class="chart chart-bar" chart-data="getArrayList(sensorPointResponseData, 'LastTempValueC', UnitInfo.UnitID);" chart-labels="labels" legend="true" series="series" options="{showTooltips: false}"></canvas> -->
+        <canvas id="bar" class="chart chart-bar" chart-data="getArrayList(sensorPointResponseData, 'LastTempValueC', UnitInfo.UnitID)" chart-labels="getArrayList(sensorPointResponseData, 'DeviceID', UnitInfo.UnitID)" legend="true" series="getArrayList(sensorPointResponseData, 'DeviceID', UnitInfo.UnitID)" options="{showTooltips: false}" chart-click="onClick"></canvas>
+        <!-- <canvas id="bar" class="chart chart-line" chart-data="getArrayList(sensorPointResponseData, 'LastTempValueC', UnitInfo.UnitID)" chart-labels="getArrayList(sensorPointResponseData, 'DeviceID', UnitInfo.UnitID)" legend="true" series="getArrayList(sensorPointResponseData, 'DeviceID', UnitInfo.UnitID)" options="{showTooltips: false}"></canvas> -->
       </div>
-      <div class="card">
-          <div class="item item-divider">
-              A bar chart
-          </div>
-          <div class="item item-text-wrap">
-              <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" legend="true" series="series" options="{showTooltips: false}"></canvas>
-          </div>
-      </div> -->
-
-      <h2>Ionic GET Json Example</h2>
-      Current time: {{result}} </br>
-      Current time: {{responseData.UnitItem}} </br>
-
-
-    </ion-content>
+    </div>
+  </ion-content>
 </ion-view>

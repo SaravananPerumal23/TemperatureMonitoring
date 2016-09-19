@@ -1,0 +1,34 @@
+  <ion-view view-title="Sensor Point Temperatur History" name="temperatureHistorical-view">
+    <ion-nav-buttons side="left">
+      <button class="button icon-left ion-back button-stable" ng-click="back()"><<</button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button class="button icon-left ion-log-out button-stable" ng-click="logout()">Logout</button>
+    </ion-nav-buttons>
+    <ion-content ng-controller="SensorPointTempHistoryController">
+      <div>
+        Sensor Point Historical Data
+      </div>
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">From Time</span>
+          <input type="text" value="{{fromDatetimeValue | date: 'yyyy-MM-dd h:mm:ss a'}}" class="item" ion-datetime-picker am-pm ng-model="fromDatetimeValue">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">To Time</span>
+          <input type="text" value="{{toDatetimeValue | date: 'yyyy-MM-dd h:mm:ss a'}}" class="item" ion-datetime-picker am-pm ng-model="toDatetimeValue">
+        </label>
+
+      </div>
+      <div>
+        <button class="button button-balanced" ng-click="getTempHistory()">
+          Display Chart
+        </button>
+      </div>
+      <div class="card">
+      <div class="item item-text-wrap">
+        <canvas id="bar" class="chart chart-bar" chart-data="getArrayList(temperatureHistoryResponseData, 'TempC', '6001')" chart-labels="getArrayList(temperatureHistoryResponseData, 'UTC', '6001')" legend="true" series="getArrayList(temperatureHistoryResponseData, 'UTC', '6001')" options="{showTooltips: false}"></canvas>
+      </div>
+    </div>
+    </ion-content>
+</ion-view>
