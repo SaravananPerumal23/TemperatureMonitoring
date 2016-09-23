@@ -10,9 +10,18 @@
       </div>
       <div class="item item-text-wrap">
         <!-- <canvas id="bar" class="chart chart-bar" chart-data="getArrayList(sensorPointResponseData, 'LastTempValueC', UnitInfo.UnitID);" chart-labels="labels" legend="true" series="series" options="{showTooltips: false}"></canvas> -->
-        <canvas id="bar" class="chart chart-bar" chart-data="getArrayList(sensorPointResponseData, 'LastTempValueC', UnitInfo.UnitID)" chart-labels="getArrayList(sensorPointResponseData, 'DeviceID', UnitInfo.UnitID)" legend="true" series="getArrayList(sensorPointResponseData, 'DeviceID', UnitInfo.UnitID)" options="{showTooltips: false}" chart-click="onClick"></canvas>
+        <canvas id="bar" height="70" width="300" class="chart chart-bar"
+        chart-series="getArrayList(sensorPointResponseData, 'DeviceID', UnitInfo.UnitID)"
+        chart-data="getArrayList(sensorPointResponseData, 'LastTempValueC', UnitInfo.UnitID)"
+        chart-labels="getArrayList(sensorPointResponseData, 'DeviceID', UnitInfo.UnitID)"
+        legend="true"
+        chart-options="chartOptions" chart-click="onClick"></canvas>
         <!-- <canvas id="bar" class="chart chart-line" chart-data="getArrayList(sensorPointResponseData, 'LastTempValueC', UnitInfo.UnitID)" chart-labels="getArrayList(sensorPointResponseData, 'DeviceID', UnitInfo.UnitID)" legend="true" series="getArrayList(sensorPointResponseData, 'DeviceID', UnitInfo.UnitID)" options="{showTooltips: false}"></canvas> -->
       </div>
     </div>
   </ion-content>
 </ion-view>
+<!--
+chart-data="getArrayList(sensorPointResponseData, 'LastTempValueC', UnitInfo.UnitID)"
+chart-labels="getArrayList(sensorPointResponseData, 'DeviceID', UnitInfo.UnitID)"
+-->

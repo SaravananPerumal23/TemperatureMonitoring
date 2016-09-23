@@ -27,7 +27,7 @@ angular.module('ionicCharts')
     if (username == 'admin') {
       role = USER_ROLES.admin
     }
-    if (username == 'user') {
+    if (username == 'digiuser') {
       role = USER_ROLES.public
     }
 
@@ -44,7 +44,7 @@ angular.module('ionicCharts')
 
   var login = function(name, pw) {
     return $q(function(resolve, reject) {
-      if ((name == 'admin' && pw == '1') || (name == 'User' && pw == '1')) {
+      if ((name == 'admin' && pw == '1') || (name == 'digiuser' && pw == 'digiuser')) {
         // Make a request and receive your auth token from your server
         storeUserCredentials(name + '.yourServerToken');
         resolve('Login success.');
