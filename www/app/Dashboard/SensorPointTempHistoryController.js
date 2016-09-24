@@ -9,8 +9,12 @@ angular.module('ionicCharts')
 
   $scope.back = function() {
     $scope.showChart = false;
+    $scope.fromDatetimeValue = "ada";
     $state.go('main.dash');
   };
+
+$scope.chartData = [-5, -6, 0, -4, -3, -5.2, -5, -1.7, -1, 0, -0.4, -2, -2, -5, 4, -2, -4, -1, -1, 2, 4, -1, 1, 1, 4, 0, -1, 1, -2, 5.7, 5];
+$scope.chartLabel = [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131];
 
   $scope.chartOptions = {
     elements: {
@@ -28,7 +32,7 @@ angular.module('ionicCharts')
     scales: {
       yAxes: [{
         ticks: {
-            min: 0
+
         }
       }]
     }
