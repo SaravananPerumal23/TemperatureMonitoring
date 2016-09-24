@@ -1,10 +1,11 @@
 angular.module('ionicCharts')
 
-.controller("DashboardController", function($scope, $http, $state, $ionicPopup, AuthService) {
+.controller("DashboardController", function($scope, $http, $state, $ionicPopup, AuthService, TEMPERATURE_CUTOFF) {
 
 $scope.testData = [15, 5, 10, -5, 2, 18, 23];
 $scope.testLabels = [6001, 6002, 6003, 6004, 6005, 6006, 6007];
 
+$scope.TEMPERATURE_CUTOFF = TEMPERATURE_CUTOFF;
 $scope.chartOptions = {
   elements: {
     line: {
