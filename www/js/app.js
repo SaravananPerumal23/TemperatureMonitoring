@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'ionicCharts' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('ionicCharts', ['ionic', 'chart.js', 'angular-lodash', 'ion-datetime-picker'])//'ngMockE2E',
+angular.module('ionicCharts', ['ionic', 'chart.js', 'angular-lodash', 'ion-datetime-picker', 'angular.filter'])//'ngMockE2E',
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,6 +22,21 @@ angular.module('ionicCharts', ['ionic', 'chart.js', 'angular-lodash', 'ion-datet
     }
   });
 })
+
+.factory('SensorPointDetails', function(){
+  var sensorPointData = {
+       SensorPointID: ''
+   };
+
+   return {
+       getSensorPointID: function () {
+           return sensorPointData.SensorPointID;
+       },
+       setSensorPointID: function (sensorPointId) {
+           sensorPointData.SensorPointID = sensorPointId;
+       }
+   };
+ })
 
 .config(function ($stateProvider, $urlRouterProvider) {
   //$httpProvider.defaults.useXDomain = true;

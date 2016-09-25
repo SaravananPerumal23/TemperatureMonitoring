@@ -3,6 +3,7 @@
   "version": "1.1.1",
   "description": "IonicCharts: An Ionic project",
   "dependencies": {
+    "angular-filter": "^0.5.11",
     "angular-lodash": "^0.1.1",
     "gulp": "^3.5.6",
     "gulp-concat": "^2.2.0",

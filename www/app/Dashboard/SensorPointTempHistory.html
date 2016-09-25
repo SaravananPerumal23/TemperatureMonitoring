@@ -22,16 +22,18 @@
         </button>
       </div>
       <div class="card" ng-show="showChart">
+        {{sensorPointID}}
       <div class="item item-text-wrap">
-        <canvas id="bar" height="220" width="600" class="chart chart-line"
+        <canvas id="sensorPointHistoryChart" height="220" class="chart chart-line"
         chart-data="chartData"
-        chart-labels="chartLabel"
+        chart-labels="chartLabel" legend="true"
+        chart-series="chartLabel"
         chart-options="chartOptions"
         ></canvas>
       </div>
     </div>
     </ion-content>
 </ion-view>
-<!-- chart-data="getArrayList(temperatureHistoryResponseData, 'TempC', '6001')"
-chart-labels="getArrayList(temperatureHistoryResponseData, 'UTC', '6001')" legend="true"
-chart-series="getArrayList(temperatureHistoryResponseData, 'UTC', '6001')"  -->
+<!-- chart-data="chartData"
+chart-labels="chartLabel"
+  -->

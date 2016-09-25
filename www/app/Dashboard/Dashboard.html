@@ -8,10 +8,23 @@
       <div class="item item-divider">
         {{UnitInfo.UnitID}}
       </div>
-      <div class="alignLeft" ng-repeat="sensorTemp in getArrayList(sensorPointResponseData, 'LastTempValueC', UnitInfo.UnitID)">
+      <!-- <div class="alignLeft" ng-repeat="sensorTemp in sensorPointResponseData | searchField: 'ParentID' | filter: UnitInfo.UnitID"> -->
+      <div class="alignLeft" ng-repeat="sensorTemp in sensorPointResponseData | filterBy: ['ParentID']: UnitInfo.UnitID">
+        <div>
+          <h3 style="align-content: right-side">{{sensorTemp.DeviceID}} </h3>
+          <a class="round-button round-button-{{((sensorTemp.LastTempValueC/TEMPERATURE_CUTOFF.cutoffValue) * 100) >= 15 ? 15 : ((sensorTemp.LastTempValueC/TEMPERATURE_CUTOFF.cutoffValue) * 100) >=10 ? 10 : 5 }}"
+            ng-click="onClick(sensorTemp.DeviceID)">{{sensorTemp.LastTempValueC}}</a>
+        </div>
+      </div>
+
+      <!-- <div class="alignLeft" ng-repeat="sensorTemp in getArrayList(sensorPointResponseData, 'LastTempValueC', UnitInfo.UnitID)">
+        <div>
+          {{sensorPointResponseData}}
+          {{sensorTemp}}
           <a class="round-button round-button-{{((sensorTemp/TEMPERATURE_CUTOFF.cutoffValue) * 100) >= 15 ? 15 : ((sensorTemp/TEMPERATURE_CUTOFF.cutoffValue) * 100) >=10 ? 10 : 5 }}"
             ng-click="onClick()">{{sensorTemp}}</a>
-      </div>
+        </div>
+      </div> -->
     </div>
   </ion-content>
 </ion-view>

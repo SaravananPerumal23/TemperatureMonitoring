@@ -5,7 +5,7 @@ angular.module('ionicCharts')
 })
 
 .constant('TEMPERATURE_CUTOFF', {
-  cutoffValue: 100
+  cutoffValue: 20
 })
 
 .constant('USER_ROLES', {
