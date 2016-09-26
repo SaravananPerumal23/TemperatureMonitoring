@@ -26,17 +26,16 @@ That will create a folder called SampleProject in the directory the command was 
 
 $ cd SampleProject && ls
 
-  bower.json     // bower dependencies </br>
-  config.xml     // cordova configuration
-  
-  gulpfile.js    // gulp tasks
-  hooks          // custom cordova hooks to execute on specific commands
-  ionic.project  // ionic configuration
-  package.json   // node dependencies
-  platforms      // iOS/Android specific builds will reside here
-  plugins        // where your cordova/ionic plugins will be installed
-  scss           // scss code, which will output to www/css/
-  www            // application - JS code and libs, CSS, images, etc.
+  |- bower.json     // bower dependencies </br>
+  |- config.xml     // cordova configuration </br>
+  |- gulpfile.js    // gulp tasks </br>
+  |- hooks          // custom cordova hooks to execute on specific commands </br>
+  |- ionic.project  // ionic configuration </br>
+  |- package.json   // node dependencies </br>
+  |- platforms      // iOS/Android specific builds will reside here </br>
+  |- plugins        // where your cordova/ionic plugins will be installed </br>
+  |- scss           // scss code, which will output to www/css/ </br>
+  |- www            // application - JS code and libs, CSS, images, etc. </br>
 If you are planning on using any version control system, you can go ahead and set it up in this new folder.
 
 Configure Platforms
