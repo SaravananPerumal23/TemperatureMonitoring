@@ -27,7 +27,9 @@ That will create a folder called SampleProject in the directory the command was 
 $ cd SampleProject && ls
 
   bower.json     // bower dependencies
+  
   config.xml     // cordova configuration
+  
   gulpfile.js    // gulp tasks
   hooks          // custom cordova hooks to execute on specific commands
   ionic.project  // ionic configuration
