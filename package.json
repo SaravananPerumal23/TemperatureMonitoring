@@ -1,6 +1,11 @@
 {
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/npm/npm.git"
+  },
+  "license": "Apache-2.0",
   "name": "ioniccharts",
-  "version": "1.1.1",
+  "version": "1.0.0",
   "description": "IonicCharts: An Ionic project",
   "dependencies": {
     "angular-filter": "^0.5.11",
@@ -31,5 +36,17 @@
       "version": "",
       "locator": "ios"
     }
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/npm/npm/issues"
+  },
+  "homepage": "https://github.com/npm/npm#readme",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "test_npm"
+  },
+  "keywords": [
+    "npm_test"
+  ],
+  "author": "Saravanan.Perumal"
 }

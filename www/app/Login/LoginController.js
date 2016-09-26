@@ -28,7 +28,7 @@ angular.module('ionicCharts')
   $scope.data = {};
 
   $scope.login = function(data) {
-    AuthService.login(data.username, data.password).then(function(authenticated) {
+    AuthService.login(data.username.toLowerCase(), data.password.toLowerCase()).then(function(authenticated) {
       $state.go('main.dash', {}, {reload: true});
       $scope.setCurrentUsername(data.username);
       data.username='';
