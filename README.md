@@ -27,7 +27,6 @@ That will create a folder called SampleProject in the directory the command was 
 $ cd SampleProject && ls
 
   bower.json     // bower dependencies
-  
   config.xml     // cordova configuration
   
   gulpfile.js    // gulp tasks
