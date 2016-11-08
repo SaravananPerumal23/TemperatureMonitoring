@@ -5,6 +5,10 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('ionicCharts', ['ionic', 'chart.js', 'angular-lodash', 'ion-datetime-picker', 'angular.filter'])//'ngMockE2E',
 
+.constant('ApiEndpoint', {
+  url: 'https://www.bn-access.com/api'
+})
+
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -38,8 +42,46 @@ angular.module('ionicCharts', ['ionic', 'chart.js', 'angular-lodash', 'ion-datet
    };
  })
 
+ .factory('sessionToken', function(){
+   var sessionToken = {
+        sessionTokenID: ''
+    };
+
+    return {
+        getSessionTokenID: function () {
+            return sessionToken.sessionTokenID;
+        },
+        setSessionTokenID: function (sessionTokenID) {
+            sessionToken.sessionTokenID = sessionTokenID;
+        }
+    };
+  })
+
+ .factory('dataFactory', ['$http', function($http) {
+    var dataFactory = {};
+    dataFactory.getDigiResponse = function (endpointUrl, inputParam) {
+      alert(endpointUrl);
+      alert(inputParam);
+      var apiRequest = { method: 'POST',
+                           crossDomain: true,
+                           url: ApiEndpoint.url + endpointUrl,
+                           headers: {
+                             'Content-Type': 'application/json'
+                           },
+                           data: { AccountID: 4761 }
+                          }
+      return  $http(apiRequest);
+        // .then(function(loginResponse){
+        //   alert('result' + loginResponse.data);
+        //   return loginResponse.data;
+        // }, function(err){return null})
+    };
+    return dataFactory;
+ }])
+
 .config(function ($stateProvider, $urlRouterProvider) {
-  //$httpProvider.defaults.useXDomain = true;
+  // $httpProvider.defaults.useXDomain = true;
+  // delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
   $stateProvider
   .state('login', {
@@ -121,7 +163,6 @@ $urlRouterProvider.otherwise('/login');
 //   $httpBackend.whenGET('http://date.jsontest.com/')
 //           .respond(200, {message: 'This is my valid response!'});
 //  })
-
 
  .run(function ($rootScope, $state, AuthService, AUTH_EVENTS) {
   $rootScope.$on('$stateChangeStart', function (event,next, nextParams, fromState) {

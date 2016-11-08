@@ -1,7 +1,7 @@
 angular.module('ionicCharts')
 
-.service('AuthService', function($q, $http, USER_ROLES) {
-  var LOCAL_TOKEN_KEY = 'AccessToken';
+.service('AuthService', function($q, $http, ApiEndpoint, sessionToken, USER_ROLES) {
+  var LOCAL_TOKEN_KEY = '';
   var username = '';
   var isAuthenticated = false;
   var role = '';
@@ -44,13 +44,33 @@ angular.module('ionicCharts')
 
   var login = function(name, pw) {
     return $q(function(resolve, reject) {
-      if ((name == 'admin' && pw == '1') || (name == 'digiuser' && pw == 'digiuser')) {
-        // Make a request and receive your auth token from your server
-        storeUserCredentials(name + '.yourServerToken');
+
+      var loginRequest = { method: 'POST',
+                           crossDomain: true,
+                           url: ApiEndpoint.url + '/Login/create/',
+                           headers: {
+                             'Content-Type': 'application/json'
+                           },
+                           data: { 'UserName': name, 'Password': pw }
+                          }
+      $http(loginRequest)
+      .then(function(loginResponse){
+        sessionToken.sessionTokenID = loginResponse.data.SessionToken;
+        storeUserCredentials(loginResponse.data.SessionToken);
         resolve('Login success.');
-      } else {
+      }, function(err){
         reject('Login Failed.');
-      }
+      })
+
+
+
+      // if ((name == 'admin' && pw == '1') || (name == 'digiuser' && pw == 'digiuser')) {
+      //   // Make a request and receive your auth token from your server
+      //   storeUserCredentials(name + '.yourServerToken');
+      //   resolve('Login success.');
+      // } else {
+      //   reject('Login Failed.');
+      // }
     });
   };
 
