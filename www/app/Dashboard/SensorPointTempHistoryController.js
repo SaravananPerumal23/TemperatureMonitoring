@@ -1,6 +1,6 @@
 angular.module('ionicCharts')
 
-.controller("SensorPointTempHistoryController", function($scope, $http, $state, AuthService, SensorPointDetails) {
+.controller("SensorPointTempHistoryController", function($scope, $http, $state, ApiEndpoint, sessionToken, AuthService, SensorPointDetails) {
 
   $scope.logout = function() {
     AuthService.logout();
@@ -33,7 +33,7 @@ angular.module('ionicCharts')
     borderWidth: 1,
     scaleLineWidth : 1,
     responsive: false,
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
     scales: {
       yAxes: [{
         ticks: {
@@ -61,14 +61,37 @@ angular.module('ionicCharts')
   return arr;
 };
 
-  $scope.getTempHistory = function() {
-    $http.get('http://localhost:8888/api/SPointTempHist/read')
-    .then(function(temperatureHistoryResp){
-      var temperatureHistoryResponseData = temperatureHistoryResp.data.SPointTempHistItem;
-      $scope.showChart = true;
-      $scope.chartData = getArrayList(temperatureHistoryResponseData, 'TempC', SensorPointDetails.getSensorPointID());
-      $scope.chartLabel = getArrayList(temperatureHistoryResponseData, 'UTC', SensorPointDetails.getSensorPointID());
-    }, function(err){
-    })
-  };
+
+// $scope.getTempHistory = function() {
+//   $http.get('http://localhost:8888/api/SPointTempHist/read')
+//   .then(function(temperatureHistoryResp){
+//     var temperatureHistoryResponseData = temperatureHistoryResp.data.SPointTempHistItem;
+//     $scope.showChart = true;
+//     $scope.chartData = getArrayList(temperatureHistoryResponseData, 'TempC', SensorPointDetails.getSensorPointID());
+//     $scope.chartLabel = getArrayList(temperatureHistoryResponseData, 'UTC', SensorPointDetails.getSensorPointID());
+//   }, function(err){
+//   })
+// };
+
+
+var tempHistoryRequest = { method: 'POST',
+                     crossDomain: true,
+                     url: ApiEndpoint.url + '/SPointTempHist/read/',
+                     headers: {
+                       'Content-Type': 'application/json',
+                       'Authorization': 'Basic ' + sessionToken.sessionTokenID
+                     },
+                     data: { 'SPointID': SensorPointDetails.getSensorPointID(), 'FromUTC': '2016-11-07T00:56:57', 'ToUTC': '2016-11-07T14:05:00' }
+                    }
+$http(tempHistoryRequest)
+.then(function(tempHistoryResponse){
+  var tempHistoryResponseData = tempHistoryResponse.data.SPointTempHistItems;
+
+  $scope.showChart = true;
+  $scope.chartData = getArrayList(tempHistoryResponseData, 'TempC', SensorPointDetails.getSensorPointID());
+  $scope.chartLabel = getArrayList(tempHistoryResponseData, 'UTC', SensorPointDetails.getSensorPointID());
+}, function(err){
+})
+
+
 });
