@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'ionicCharts' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('ionicCharts', ['ionic', 'chart.js', 'angular-lodash', 'ion-datetime-picker', 'angular.filter'])//'ngMockE2E',
+angular.module('ionicCharts', ['ionic', 'chart.js', 'angular-lodash', 'ion-datetime-picker', 'ti-segmented-control', 'angular.filter'])//'ngMockE2E',
 
 .constant('ApiEndpoint', {
   url: 'https://www.bn-access.com/api'

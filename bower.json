@@ -8,6 +8,7 @@
     "angular-mocks": "^1.5.8",
     "ion-datetime-picker": "^0.3.1",
     "angular-lodash": "^0.1.2",
-    "angular-filter": "^0.5.11"
+    "angular-filter": "^0.5.11",
+    "ti-segmented-control": "^0.0.2"
   }
 }

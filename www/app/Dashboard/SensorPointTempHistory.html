@@ -5,8 +5,18 @@
     <ion-nav-buttons side="right">
       <button class="button icon-left ion-log-out button-stable" ng-click="logout()">Logout</button>
     </ion-nav-buttons>
+    <ion-segment [(ngModel)]="relationship" color="primary">
+
     <ion-content ng-controller="SensorPointTempHistoryController">
-      <div class="list">
+
+      <ti-segmented-control on-select="buttonClicked($index)">
+          <ti-segmented-control-button class="button-positive" title="'Today'" selected></ti-segmented-control-button>
+          <ti-segmented-control-button class="button-positive" title="'Last 2 Days'"></ti-segmented-control-button>
+          <ti-segmented-control-button class="button-positive" title="'Last 7 Days'"></ti-segmented-control-button>
+          <!-- <ti-segmented-control-button class="button-positive" title="'Custom Search'"></ti-segmented-control-button> -->
+      </ti-segmented-control>
+
+      <!-- <div class="list">
         <label class="item item-input item-stacked-label">
           <span class="input-label">From Time</span>
           <input type="text" placeholder="YYYY-MM-DD hh:mm:ss AM/PM" value="{{fromDatetimeValue | date: 'yyyy-MM-dd h:mm:ss a'}}" class="item" ion-datetime-picker am-pm ng-model="fromDatetimeValue">
@@ -20,7 +30,8 @@
         <button class="button button-balanced" ng-click="getTempHistory()">
           Display Chart
         </button>
-      </div>
+      </div> -->
+      
       <div class="card" ng-show="showChart">
         {{sensorPointID}}
       <div class="item item-text-wrap">
