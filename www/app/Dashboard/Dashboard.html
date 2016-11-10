@@ -15,15 +15,6 @@
             ng-click="onClick(sensorTemp.SPointID)">{{sensorTemp.LastTempValueC}}</a>
         </div>
       </div>
-
-      <!-- <div class="alignLeft" ng-repeat="sensorTemp in getArrayList(sensorPointResponseData, 'LastTempValueC', UnitInfo.UnitID)">
-        <div>
-          {{sensorPointResponseData}}
-          {{sensorTemp}}
-          <a class="round-button round-button-{{((sensorTemp/TEMPERATURE_CUTOFF.cutoffValue) * 100) >= 15 ? 15 : ((sensorTemp/TEMPERATURE_CUTOFF.cutoffValue) * 100) >=10 ? 10 : 5 }}"
-            ng-click="onClick()">{{sensorTemp}}</a>
-        </div>
-      </div> -->
     </div>
   </ion-content>
 </ion-view>

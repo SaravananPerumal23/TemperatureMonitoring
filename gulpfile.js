@@ -6,35 +6,10 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
-// // `npm install --save replace`
-// var replace = require('replace');
-// var replaceFiles = ['./www/js/app.js'];
 
 var paths = {
   sass: ['./scss/**/*.scss']
 };
-
-
-
-// gulp.task('add-proxy', function() {
-//   return replace({
-//     regex: "https://www.bn-access.com/api",
-//     replacement: "http://localhost:8100/api",
-//     paths: replaceFiles,
-//     recursive: false,
-//     silent: false,
-//   });
-// })
-//
-// gulp.task('remove-proxy', function() {
-//   return replace({
-//     regex: "http://localhost:8100/api",
-//     replacement: "https://www.bn-access.com/api",
-//     paths: replaceFiles,
-//     recursive: false,
-//     silent: false,
-//   });
-// })
 
 gulp.task('default', ['sass']);
 
