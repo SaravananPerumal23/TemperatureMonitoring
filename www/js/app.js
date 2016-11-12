@@ -50,24 +50,19 @@ angular.module('ionicCharts', ['ionic', 'chart.js', 'ti-segmented-control', 'ang
     };
   })
 
- .factory('dataFactory', ['$http', function($http) {
+ .factory('dataFactory', ['$http', 'ApiEndpoint', 'sessionToken', function($http, ApiEndpoint, sessionToken) {
     var dataFactory = {};
     dataFactory.getDigiResponse = function (endpointUrl, inputParam) {
-      alert(endpointUrl);
-      alert(inputParam);
       var apiRequest = { method: 'POST',
                            crossDomain: true,
                            url: ApiEndpoint.url + endpointUrl,
                            headers: {
-                             'Content-Type': 'application/json'
+                             'Content-Type': 'application/json',
+                             'Authorization': 'Basic ' + sessionToken.sessionTokenID
                            },
-                           data: { AccountID: 4761 }
+                           data: inputParam
                           }
       return  $http(apiRequest);
-        // .then(function(loginResponse){
-        //   alert('result' + loginResponse.data);
-        //   return loginResponse.data;
-        // }, function(err){return null})
     };
     return dataFactory;
  }])
@@ -125,19 +120,19 @@ angular.module('ionicCharts', ['ionic', 'chart.js', 'ti-segmented-control', 'ang
 $urlRouterProvider.otherwise('/login');
 })
 
- .run(function ($rootScope, $state, AuthService, AUTH_EVENTS) {
+ .run(function ($rootScope, $state, LoginService, AUTH_EVENTS) {
   $rootScope.$on('$stateChangeStart', function (event,next, nextParams, fromState) {
 
     if ('data' in next && 'authorizedRoles' in next.data) {
       var authorizedRoles = next.data.authorizedRoles;
-      if (!AuthService.isAuthorized(authorizedRoles)) {
+      if (!LoginService.isAuthorized(authorizedRoles)) {
         event.preventDefault();
         $state.go($state.current, {}, {reload: true});
         $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
       }
     }
 
-    if (!AuthService.isAuthenticated()) {
+    if (!LoginService.isAuthenticated()) {
       if (next.name !== 'login') {
         event.preventDefault();
         $state.go('login');

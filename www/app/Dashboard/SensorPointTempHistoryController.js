@@ -1,70 +1,68 @@
 angular.module('ionicCharts')
 
-.controller("SensorPointTempHistoryController", function($scope, $http, $state, $filter, ApiEndpoint, sessionToken, AuthService, SensorPointDetails) {
-
-
+.controller("SensorPointTempHistoryController", function($scope, $http, $state, $filter, ApiEndpoint, dataFactory, sessionToken, LoginService, SensorPointDetails) {
 
 $scope.working = false;
 
-  $scope.logout = function() {
-    AuthService.logout();
-    $state.go('login');
-  };
+$scope.logout = function() {
+  LoginService.logout();
+  $state.go('login');
+};
 
-  $scope.back = function() {
-    $scope.showChart = false;
-    delete $scope.chartData;
-    delete $scope.chartLabel;
-    $state.go('main.dash');
-  };
+$scope.back = function() {
+  $scope.showChart = false;
+  delete $scope.chartData;
+  delete $scope.chartLabel;
+  $state.go('main.dash');
+};
 
-  $scope.$watch(function () {
-    $scope.sensorPointID = SensorPointDetails.getSensorPointID();
-  });
+$scope.$watch(function () {
+  $scope.sensorPointID = SensorPointDetails.getSensorPointID();
+});
 
-  // var myInit = function () {
-  //     $scope.buttonClicked(0);
-  // };
-  // angular.element(document).ready(myInit);
+// var myInit = function () {
+//     $scope.buttonClicked(0);
+// };
+// angular.element(document).ready(myInit);
 
-  $scope.chartOptions = {
-    elements: {
-      line: {
-      //borderWidth: 0.5,
-      tension: 0,
-      fill: false
-      }
-    },
-    responsive: true,
-    borderWidth: 1,
-    scaleLineWidth : 1,
-    responsive: false,
-    maintainAspectRatio: true,
-    scales: {
-      yAxes: [{
-        ticks: {
-
-        }
-      }]
+$scope.chartOptions = {
+  elements: {
+    line: {
+    //borderWidth: 0.5,
+    tension: 0,
+    fill: false
     }
-  };
+  },
+  responsive: true,
+  borderWidth: 1,
+  scaleLineWidth : 1,
+  responsive: false,
+  maintainAspectRatio: true,
+  scales: {
+    yAxes: [{
+      ticks: {
 
-  function getArrayList(data, fieldField, filterBy){
-  var arr = [];
-  angular.forEach(data, function(filterObj , filterIndex){
-    angular.forEach(filterObj, function(value , key){
-      if(key == "SPointID" && value == filterBy){
-        angular.forEach(filterObj, function(value , key){
-          if(key == fieldField){
-            arr.push(value);
-            return;
-          }
-        });
-        return;
       }
-    })
-  });
-  return arr;
+    }]
+  }
+};
+
+function getArrayList(data, fieldField, filterBy){
+var arr = [];
+angular.forEach(data, function(filterObj , filterIndex){
+  angular.forEach(filterObj, function(value , key){
+    if(key == "SPointID" && value == filterBy){
+      angular.forEach(filterObj, function(value , key){
+        if(key == fieldField){
+          arr.push(value);
+          return;
+        }
+      });
+      return;
+    }
+  })
+});
+return arr;
 };
 
 
@@ -81,29 +79,16 @@ $scope.working = false;
 
 
 $scope.getChart = function() {
-  var tempHistoryRequest = { method: 'POST',
-                       crossDomain: true,
-                       url: ApiEndpoint.url + '/SPointTempHist/read/',
-                       headers: {
-                         'Content-Type': 'application/json',
-                         'Authorization': 'Basic ' + sessionToken.sessionTokenID
-                       },
-                       data: { 'SPointID': SensorPointDetails.getSensorPointID(),
-                               'FromUTC': $scope.previousDate,
-                               'ToUTC': $scope.todaysDate
-                             }
-                      }
-  $http(tempHistoryRequest)
+  var inputParam = '{ SPointID: ' + SensorPointDetails.getSensorPointID() + ', FromUTC: "' + $scope.previousDate + '", ToUTC: "'+ $scope.todaysDate + '"}';
+  dataFactory.getDigiResponse('/SPointTempHist/read/', inputParam)
   .then(function(tempHistoryResponse){
     var tempHistoryResponseData = tempHistoryResponse.data.SPointTempHistItems;
-
     $scope.showChart = true;
     $scope.chartData = getArrayList(tempHistoryResponseData, 'TempC', SensorPointDetails.getSensorPointID());
     $scope.chartLabel = getArrayList(tempHistoryResponseData, 'UTC', SensorPointDetails.getSensorPointID());
   }, function(err){
   });
 }
-
 
 //$scope.getDatetime = new Date('2016-11-07 00:00:00');
 var noOfDays = 0;

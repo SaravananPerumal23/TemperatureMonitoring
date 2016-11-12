@@ -1,7 +1,7 @@
 angular.module('ionicCharts')
 
-.controller('MainController', function($scope, $state, $ionicPopup, AuthService, AUTH_EVENTS) {
-  $scope.username = AuthService.username();
+.controller('MainController', function($scope, $state, $ionicPopup, LoginService, AUTH_EVENTS) {
+  $scope.username = LoginService.username();
 
   $scope.$on(AUTH_EVENTS.notAuthorized, function(event) {
     var alertPopup = $ionicPopup.alert({
@@ -11,7 +11,7 @@ angular.module('ionicCharts')
   });
 
   $scope.$on(AUTH_EVENTS.notAuthenticated, function(event) {
-    AuthService.logout();
+    LoginService.logout();
     $state.go('login');
     var alertPopup = $ionicPopup.alert({
       title: 'Session Lost!',
@@ -24,11 +24,11 @@ angular.module('ionicCharts')
   };
 })
 
-.controller('LoginController', function($scope, $state, $ionicPopup, AuthService) {
+.controller('LoginController', function($scope, $state, $ionicPopup, LoginService) {
   $scope.data = {};
 
   $scope.login = function(data) {
-    AuthService.login(data.username.toLowerCase(), data.password.toLowerCase()).then(function(authenticated) {
+    LoginService.login(data.username.toLowerCase(), data.password.toLowerCase()).then(function(authenticated) {
       $state.go('main.dash', {}, {reload: true});
       $scope.setCurrentUsername(data.username);
       data.username='';

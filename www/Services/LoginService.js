@@ -1,6 +1,6 @@
 angular.module('ionicCharts')
 
-.service('AuthService', function($q, $http, ApiEndpoint, sessionToken, USER_ROLES) {
+.service('LoginService', function($q, $http, ApiEndpoint, sessionToken, USER_ROLES) {
   var LOCAL_TOKEN_KEY = '';
   var username = '';
   var isAuthenticated = false;
