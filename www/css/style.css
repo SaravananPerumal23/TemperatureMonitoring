@@ -59,3 +59,52 @@ align-content: center;
 .round-button:hover {
     background: #3383FF;
 }
+
+.headerItem {
+  background: #29506d; /*#d2d9dd; */
+  color: white;
+}
+.item {
+  background: #f9ffff;
+}
+
+.odditem {
+  background: #f9ffff;
+}
+
+.evenitem {
+  background: #cbc2d6;
+}
+
+.row{
+/*border: solid #29506d 1px;*/
+border: solid #29506d 1px;
+padding: 0;
+}
+
+.col{
+border-left: solid #29506d 1px;
+offset: 0;
+}
+
+/*.odd {
+  .row;
+  .col;
+  color: red;
+}
+.odd.row{
+border: think solid green;
+color: red;
+padding: 0;
+offset:5;
+}
+.odd.col{
+border: think solid green;
+color: red;
+offset: 0;
+}
+.even {
+  .row;
+  .col;
+  color: blue;
+}*/

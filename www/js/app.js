@@ -1,14 +1,4 @@
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'ionicCharts' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-angular.module('ionicCharts', ['ionic', 'chart.js', 'ti-segmented-control', 'angular.filter'])//'ngMockE2E',
-
-.constant('ApiEndpoint', {
-  url: 'https://www.bn-access.com/api'
-})
-
+angular.module('ionicCharts', ['ionic', 'chart.js', 'ti-segmented-control', 'angular.filter'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -68,9 +58,6 @@ angular.module('ionicCharts', ['ionic', 'chart.js', 'ti-segmented-control', 'ang
  }])
 
 .config(function ($stateProvider, $urlRouterProvider) {
-  // $httpProvider.defaults.useXDomain = true;
-  // delete $httpProvider.defaults.headers.common['X-Requested-With'];
-
   $stateProvider
   .state('login', {
     url: '/login',

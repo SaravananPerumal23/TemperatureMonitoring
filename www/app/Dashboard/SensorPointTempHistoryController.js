@@ -1,8 +1,11 @@
 angular.module('ionicCharts')
 
-.controller("SensorPointTempHistoryController", function($scope, $http, $state, $filter, ApiEndpoint, dataFactory, sessionToken, LoginService, SensorPointDetails) {
+.controller("SensorPointTempHistoryController", function($scope, $http, $state,
+  $filter, ApiEndpoint, dataFactory, sessionToken, LoginService,
+  SensorPointDetails, JsonData) {
 
 $scope.working = false;
+$scope.dpciDetails = JsonData.UnitItems;
 
 $scope.logout = function() {
   LoginService.logout();
