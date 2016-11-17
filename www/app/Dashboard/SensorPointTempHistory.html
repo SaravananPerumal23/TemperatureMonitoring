@@ -10,9 +10,9 @@
     <ion-content ng-controller="SensorPointTempHistoryController">
 
       <ti-segmented-control on-select="buttonClicked($index)">
-          <ti-segmented-control-button class="button-positive" title="'Today'" selected></ti-segmented-control-button>
-          <ti-segmented-control-button class="button-positive" title="'Last 2 Days'"></ti-segmented-control-button>
-          <ti-segmented-control-button class="button-positive" title="'Last 7 Days'"></ti-segmented-control-button>
+          <ti-segmented-control-button class="button-positive" title="'Last 3 Hours'" selected></ti-segmented-control-button>
+          <ti-segmented-control-button class="button-positive" title="'Last 12 Hours'"></ti-segmented-control-button>
+          <ti-segmented-control-button class="button-positive" title="'Last 24 Hours'"></ti-segmented-control-button>
           <!-- <ti-segmented-control-button class="button-positive" title="'Custom Search'"></ti-segmented-control-button> -->
       </ti-segmented-control>
 
@@ -36,52 +36,24 @@
         {{sensorPointID}}
       <div class="item item-text-wrap">
         <canvas id="sensorPointHistoryChart"
-        class="chart chart-line"
-        chart-data="chartData"
-        chart-labels="chartLabel" legend="true"
-        chart-series="chartLabel"
-        ></canvas>
+          class="chart chart-line"
+          chart-data="chartData"
+          chart-labels="chartLabel" legend="true"
+          chart-series="chartLabel">
+        </canvas>
       </div>
     </div>
-
     <div>
       <div class="row">
         <div class="headerItem col">DPCI</div>
         <div class="headerItem col">Item Description</div>
       </div>
-      <div ng-repeat="dpci in dpciDetails" >
-        <!-- <div>
-          <div ng-class-odd="'odd'" ng-class-even="'even'">{{dpci.DPCI}}</div>
-          <div ng-class-odd="'odd'" ng-class-even="'even'">{{dpci.ItemDesc}}</div>
-        </div> -->
+      <div ng-repeat="dpci in dpciDetails | filter: {SensorPointID: sensorPointID}" >
       <div class="row" ng-class-odd="'odditem'" ng-class-even="'evenitem'">
         <div class="col">{{dpci.DPCI}}</div>
         <div class="col">{{dpci.ItemDesc}}</div>
       </div>
     </div>
   </div>
-
-
-    <!-- <ion-grid>
-      <ion-row class="bar bar-header bar-positive">
-        <ion-col width-80>DPCI</ion-col>
-        <ion-col width-80>Item Description</ion-col>
-      </ion-row>
-      <div ng-repeat="dpci in dpciDetails">
-      <ion-row>
-        <ion-col width-40>{{dpci.DPCI}}</ion-col>
-        <ion-col width-40>{{dpci.ItemDesc}}</ion-col>
-      </ion-row>
-    </div>
-    </ion-grid> -->
-
-    <!-- <div class="row" style="flex-wrap: wrap;">
-    <div class="col col-25" ng-repeat="dpci in dpciDetails">
-        <button class="button button-dark" >{{dpci.DPCI}}</button>
-    </div>
-    </div> -->
     </ion-content>
 </ion-view>
-<!-- chart-data="chartData"
-chart-labels="chartLabel"
-  -->

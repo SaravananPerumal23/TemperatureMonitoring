@@ -19,40 +19,82 @@ angular.module('ionicCharts')
 
 .constant('JsonData', {
   "UnitItems":[{
-    "UnitID":4762,
+    "SensorPointID":16167,
     "DeptCategory": "Dairy",
     "DPCI": "201-02-1213",
-    "ItemDesc":"Market Pantry Milk"
+    "ItemDesc":"Market Pantry Yogurt"
   },
   {
-    "UnitID":4762,
+    "SensorPointID":16167,
     "DeptCategory": "Dairy",
     "DPCI": "201-02-1214",
-    "ItemDesc":"Market Pantry Milk"
+    "ItemDesc":"Old Plain Yogurt"
   },
   {
-    "UnitID":4762,
+    "SensorPointID":16168,
     "DeptCategory": "Dairy",
     "DPCI": "201-02-1215",
     "ItemDesc":"Kemps Milk"
   },
   {
-    "UnitID":4762,
+    "SensorPointID":16168,
     "DeptCategory": "Dairy",
     "DPCI": "201-02-1215",
-    "ItemDesc":"Kemps Whole Milk"
+    "ItemDesc":"Market Pantry Milk"
   },
   {
-    "UnitID":4763,
-    "DeptCategory": "Deli",
-    "DPCI": "205-34-2424",
-    "ItemDesc":"Whole Chicken"
+    "SensorPointID":16169,
+    "DeptCategory": "Frozen Foods",
+    "DPCI": "781-21-4232",
+    "ItemDesc":"Lotza Motza Pizza"
   },
   {
-    "UnitID":4763,
-    "DeptCategory": "Deli",
-    "DPCI": "205-34-2425",
-    "ItemDesc":"Drumstick Chicken"
+    "SensorPointID":16169,
+    "DeptCategory": "Frozen Foods",
+    "DPCI": "781-07-2092",
+    "ItemDesc":"Digiorno Pizzeria"
+  },
+  {
+    "SensorPointID":16170,
+    "DeptCategory": "Fresh Vegetables",
+    "DPCI": "533-21-0243",
+    "ItemDesc":"Raddish"
+  },
+  {
+    "SensorPointID":16170,
+    "DeptCategory": "Fresh Vegetables",
+    "DPCI": "553-34-2425",
+    "ItemDesc":"Mint Leaves"
+  },
+  {
+    "SensorPointID":16170,
+    "DeptCategory": "Fresh Vegetables",
+    "DPCI": "023-34-2320",
+    "ItemDesc":"Baby Spinach"
+  },
+  {
+    "SensorPointID":16170,
+    "DeptCategory": "Fresh Vegetables",
+    "DPCI": "192-61-0836",
+    "ItemDesc":"Mushroom"
+  },
+  {
+    "SensorPointID":16171,
+    "DeptCategory": "Frozen Meat",
+    "DPCI": "212-34-2425",
+    "ItemDesc":"Gold Plump Chicken"
+  },
+  {
+    "SensorPointID":16171,
+    "DeptCategory": "Frozen Meat",
+    "DPCI": "202-01-0198",
+    "ItemDesc":"Market Pantry Fresh Chicken"
+  },
+  {
+    "SensorPointID":16172,
+    "DeptCategory": "Energy Drinks",
+    "DPCI": "862-88-2964",
+    "ItemDesc":"Gatorade 16 Pack"
   }
 ]
 });

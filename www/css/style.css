@@ -61,7 +61,7 @@ align-content: center;
 }
 
 .headerItem {
-  background: #29506d; /*#d2d9dd; */
+  background: #3383FF; /* #29506d  #d2d9dd; */
   color: white;
 }
 .item {
@@ -69,11 +69,11 @@ align-content: center;
 }
 
 .odditem {
-  background: #f9ffff;
+  background: #cff7ea /* #f9ffff; */
 }
 
 .evenitem {
-  background: #cbc2d6;
+  background: #e8ebf7; /*#cbc2d6; */
 }
 
 .row{

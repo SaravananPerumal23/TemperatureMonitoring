@@ -94,25 +94,37 @@ $scope.getChart = function() {
 }
 
 //$scope.getDatetime = new Date('2016-11-07 00:00:00');
-var noOfDays = 0;
+//var noOfDays = 0;
+var noOfHours = 0;
 // $scope.getDatetime =  new Date().setDate(new Date().getDate() - noOfDays);
 
 $scope.buttonClicked = function(index) {
   switch (index) {
     case 0:
-      noOfDays = 1;
+      //noOfDays = 1;
+      noOfHours = 3;
       break;
     case 1:
-      noOfDays = 2;
+      //noOfDays = 2;
+      noOfHours = 12;
       break;
     case 2:
-      noOfDays = 7;
+      //noOfDays = 7;
+      noOfHours = 24;
       break;
     default:
-      noOfDays = 1;
+      //noOfDays = 1;
+      noOfHours = 3;
   }
-  $scope.todaysDate = $filter('date')(new Date().setDate(new Date().getDate()), "yyyy-MM-ddT00:00:00");
-  $scope.previousDate = $filter('date')(new Date().setDate(new Date().getDate() - noOfDays), "yyyy-MM-ddT00:00:00");
+
+  var d1 = new Date (), d2 = new Date ( d1 );
+
+//For getting historical data between Days
+//$scope.todaysDate = $filter('date')(new Date().setDate(new Date().getDate()), "yyyy-MM-ddT00:00:00");
+//$scope.previousDate = $filter('date')(new Date().setDate(new Date().getDate() - noOfDays), "yyyy-MM-ddT00:00:00");
+  $scope.todaysDate = $filter('date')(d2, "yyyy-MM-ddTHH:mm:ss");
+  d2.setHours( d1.getHours() - noOfHours );
+  $scope.previousDate = $filter('date')(d2, "yyyy-MM-ddTHH:mm:ss");
   $scope.getChart();
 }
 $scope.buttonClicked(0);
