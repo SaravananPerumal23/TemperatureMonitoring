@@ -1,19 +1,23 @@
 /* Empty. Add your own CSS if you like */
 
-.button.button-balanced {
-  background-color: #3383FF;
+.button.button-assertive {
+  background-color: #ce0d0d;
 }
+.button.button-balanced {
+  background-color: #ce0d0d;
+}
+
 .button.button-balanced.active, .button.button-balanced.activated {
   border-color: #a2a2a2;
-  background-color: #3383FF; }
+  background-color: #ce0d0d; }
 
 .tabs-balanced > .tabs,
 .tabs.tabs-balanced {
-  background-color: #3383FF;
+  background-color: #ce0d0d;
 }
 
 .bar.bar-balanced {
-  background-color: #3383FF;
+  background-color: #ce0d0d;
 }
 
 .alignLeft {
@@ -57,11 +61,11 @@ align-content: center;
 
 }
 .round-button:hover {
-    background: #3383FF;
+    background: #4a8ece;
 }
 
 .headerItem {
-  background: #3383FF; /* #29506d  #d2d9dd; */
+  background: #ce0d0d; /* #29506d  #d2d9dd; */
   color: white;
 }
 .item {
@@ -69,7 +73,7 @@ align-content: center;
 }
 
 .odditem {
-  background: #cff7ea /* #f9ffff; */
+  background: #e9b9b9 /* cff7ea #f9ffff; */
 }
 
 .evenitem {
@@ -86,6 +90,26 @@ padding: 0;
 border-left: solid #29506d 1px;
 offset: 0;
 }
+
+.card {
+  border: solid #ce0d0d 1px;
+  /*background-color: rgba(249, 4, 4, 0.24);*/
+};
+
+.card.item {
+  background-color: rgba(249, 4, 4, 0.24);
+}
+
+.card.ng-binding {
+  background-color: rgba(249, 4, 4, 0.24);
+  padding-top: 5px;
+  text-align: center;
+}
+
+.item.item-divider.item {
+  background-color: rgba(249, 4, 4, 0.24)
+}
+
 
 /*.odd {
   .row;

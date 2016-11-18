@@ -12,7 +12,7 @@
         <div>
           <h3 style="align-content: right-side">{{sensorTemp.Desc}} </h3>
           <a class="round-button round-button-{{((sensorTemp.LastTempValueC/TEMPERATURE_CUTOFF.cutoffValue) * 100) >= 15 ? 15 : ((sensorTemp.LastTempValueC/TEMPERATURE_CUTOFF.cutoffValue) * 100) >=10 ? 10 : 5 }}"
-            ng-click="onClick(sensorTemp.SPointID)">{{sensorTemp.LastTempValueC}}</a>
+            ng-click="onClick(sensorTemp.SPointID, sensorTemp.Desc)">{{sensorTemp.LastTempValueC}}</a>
         </div>
       </div>
     </div>

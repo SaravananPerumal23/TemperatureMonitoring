@@ -10,9 +10,9 @@
     <ion-content ng-controller="SensorPointTempHistoryController">
 
       <ti-segmented-control on-select="buttonClicked($index)">
-          <ti-segmented-control-button class="button-positive" title="'Last 3 Hours'" selected></ti-segmented-control-button>
-          <ti-segmented-control-button class="button-positive" title="'Last 12 Hours'"></ti-segmented-control-button>
-          <ti-segmented-control-button class="button-positive" title="'Last 24 Hours'"></ti-segmented-control-button>
+          <ti-segmented-control-button class="button-positive" title="'3 Hours'" selected></ti-segmented-control-button>
+          <ti-segmented-control-button class="button-positive" title="'12 Hours'"></ti-segmented-control-button>
+          <ti-segmented-control-button class="button-positive" title="'24 Hours'"></ti-segmented-control-button>
           <!-- <ti-segmented-control-button class="button-positive" title="'Custom Search'"></ti-segmented-control-button> -->
       </ti-segmented-control>
 
@@ -33,7 +33,7 @@
       </div> -->
 
       <div class="card" ng-show="showChart">
-        {{sensorPointID}}
+        {{sensorPointDesc}}
       <div class="item item-text-wrap">
         <canvas id="sensorPointHistoryChart"
           class="chart chart-line"
@@ -47,11 +47,13 @@
       <div class="row">
         <div class="headerItem col">DPCI</div>
         <div class="headerItem col">Item Description</div>
+        <div class="headerItem col">Quantity</div>
       </div>
       <div ng-repeat="dpci in dpciDetails | filter: {SensorPointID: sensorPointID}" >
       <div class="row" ng-class-odd="'odditem'" ng-class-even="'evenitem'">
         <div class="col">{{dpci.DPCI}}</div>
         <div class="col">{{dpci.ItemDesc}}</div>
+        <div class="col">{{dpci.Quantity}}</div>
       </div>
     </div>
   </div>

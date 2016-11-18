@@ -13,14 +13,16 @@ angular.module('ionicCharts', ['ionic', 'chart.js', 'ti-segmented-control', 'ang
 
 .factory('SensorPointDetails', function(){
   var sensorPointData = {
-       SensorPointID: ''
+        SensorPointID: '',
+        SensorPointDesc: ''
    };
    return {
        getSensorPointID: function () {
-           return sensorPointData.SensorPointID;
+           return sensorPointData;
        },
-       setSensorPointID: function (sensorPointId) {
+       setSensorPointID: function (sensorPointId, sensorPointDesc) {
            sensorPointData.SensorPointID = sensorPointId;
+           sensorPointData.SensorPointDesc = sensorPointDesc;
        }
    };
  })

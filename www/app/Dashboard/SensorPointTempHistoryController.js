@@ -20,7 +20,8 @@ $scope.back = function() {
 };
 
 $scope.$watch(function () {
-  $scope.sensorPointID = SensorPointDetails.getSensorPointID();
+  $scope.sensorPointID = SensorPointDetails.getSensorPointID().SensorPointID;
+  $scope.sensorPointDesc = SensorPointDetails.getSensorPointID().SensorPointDesc;
 });
 
 // var myInit = function () {
@@ -57,6 +58,9 @@ angular.forEach(data, function(filterObj , filterIndex){
     if(key == "SPointID" && value == filterBy){
       angular.forEach(filterObj, function(value , key){
         if(key == fieldField){
+          if(key == "UTC") {
+            value = $filter('date')(value, "HH:mm:ss")
+          }
           arr.push(value);
           return;
         }
@@ -82,13 +86,13 @@ return arr;
 
 
 $scope.getChart = function() {
-  var inputParam = '{ SPointID: ' + SensorPointDetails.getSensorPointID() + ', FromUTC: "' + $scope.previousDate + '", ToUTC: "'+ $scope.todaysDate + '"}';
+  var inputParam = '{ SPointID: ' + SensorPointDetails.getSensorPointID().SensorPointID + ', FromUTC: "' + $scope.previousDate + '", ToUTC: "'+ $scope.todaysDate + '"}';
   dataFactory.getDigiResponse('/SPointTempHist/read/', inputParam)
   .then(function(tempHistoryResponse){
     var tempHistoryResponseData = tempHistoryResponse.data.SPointTempHistItems;
     $scope.showChart = true;
-    $scope.chartData = getArrayList(tempHistoryResponseData, 'TempC', SensorPointDetails.getSensorPointID());
-    $scope.chartLabel = getArrayList(tempHistoryResponseData, 'UTC', SensorPointDetails.getSensorPointID());
+    $scope.chartData = getArrayList(tempHistoryResponseData, 'TempC', SensorPointDetails.getSensorPointID().SensorPointID);
+    $scope.chartLabel = getArrayList(tempHistoryResponseData, 'UTC', SensorPointDetails.getSensorPointID().SensorPointID);
   }, function(err){
   });
 }

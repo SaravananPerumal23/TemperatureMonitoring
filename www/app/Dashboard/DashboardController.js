@@ -43,8 +43,8 @@ $scope.logout = function() {
   $state.go('login');
 };
 
-$scope.onClick = function(sensorPointId, evt) {
-  SensorPointDetails.setSensorPointID(sensorPointId);
+$scope.onClick = function(sensorPointId, sensorPointDesc, evt) {
+  SensorPointDetails.setSensorPointID(sensorPointId, sensorPointDesc);
   $state.go('main.sensorPoint');
 };
 });
