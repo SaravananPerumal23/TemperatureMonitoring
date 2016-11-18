@@ -32,23 +32,24 @@ $scope.$watch(function () {
 $scope.chartOptions = {
   elements: {
     line: {
-    //borderWidth: 0.5,
+    // borderWidth: 0.5,
     tension: 0,
     fill: false
     }
-  },
-  responsive: true,
-  borderWidth: 1,
-  scaleLineWidth : 1,
-  responsive: false,
-  maintainAspectRatio: true,
-  scales: {
-    yAxes: [{
-      ticks: {
-
-      }
-    }]
   }
+  // ,
+  // responsive: false,
+  // borderWidth: 1,
+  // scaleLineWidth : 1,
+  // responsive: false,
+  // maintainAspectRatio: true,
+  // scales: {
+  //   yAxes: [{
+  //     ticks: {
+  //
+  //     }
+  //   }]
+  // }
 };
 
 function getArrayList(data, fieldField, filterBy){

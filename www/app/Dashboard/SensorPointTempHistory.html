@@ -1,4 +1,4 @@
-  <ion-view view-title="Sensor Point Temperature History" name="temperatureHistorical-view">
+  <ion-view view-title="Detailed View" name="temperatureHistorical-view">
     <ion-nav-buttons side="left">
       <button class="button icon-left ion-back button-stable" ng-click="back()"><<</button>
     </ion-nav-buttons>
@@ -39,7 +39,8 @@
           class="chart chart-line"
           chart-data="chartData"
           chart-labels="chartLabel" legend="true"
-          chart-series="chartLabel">
+          chart-series="chartLabel"
+          chart-options="chartOptions">
         </canvas>
       </div>
     </div>
@@ -50,7 +51,7 @@
         <div class="headerItem col">Quantity</div>
       </div>
       <div ng-repeat="dpci in dpciDetails | filter: {SensorPointID: sensorPointID}" >
-      <div class="row" ng-class-odd="'odditem'" ng-class-even="'evenitem'">
+      <div class="row" ng-class-odd="'evenitem'" ng-class-even="'evenitem'">
         <div class="col">{{dpci.DPCI}}</div>
         <div class="col">{{dpci.ItemDesc}}</div>
         <div class="col">{{dpci.Quantity}}</div>

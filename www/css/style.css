@@ -22,11 +22,15 @@
 
 .alignLeft {
   float: left;
+  width: 180px;
   padding: 10px;
+  text-align: center;
 }
 .alignLeft.h2 {
+  width: 180px;
 vertical-align: middle;
 align-content: center;
+text-align: center;
 }
 
 /*RED*/
@@ -110,6 +114,11 @@ offset: 0;
   background-color: rgba(249, 4, 4, 0.24)
 }
 
+
+.roundButtonAlignment {
+  width: 73%;
+  margin-left: auto;
+}
 
 /*.odd {
   .row;

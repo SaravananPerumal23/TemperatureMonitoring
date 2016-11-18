@@ -11,8 +11,10 @@
       <div class="alignLeft" ng-repeat="sensorTemp in sensorPointResponseData.SPointItems | filterBy: ['ParentID']: UnitInfo.UnitID">
         <div>
           <h3 style="align-content: right-side">{{sensorTemp.Desc}} </h3>
+          <div class="roundButtonAlignment">
           <a class="round-button round-button-{{((sensorTemp.LastTempValueC/TEMPERATURE_CUTOFF.cutoffValue) * 100) >= 15 ? 15 : ((sensorTemp.LastTempValueC/TEMPERATURE_CUTOFF.cutoffValue) * 100) >=10 ? 10 : 5 }}"
             ng-click="onClick(sensorTemp.SPointID, sensorTemp.Desc)">{{sensorTemp.LastTempValueC}}</a>
+          </div>
         </div>
       </div>
     </div>
