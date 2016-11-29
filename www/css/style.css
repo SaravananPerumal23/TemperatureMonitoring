@@ -3,21 +3,22 @@
 .button.button-assertive {
   background-color: #ce0d0d;
 }
-.button.button-balanced {
+.button.button-assertive {
   background-color: #ce0d0d;
 }
 
-.button.button-balanced.active, .button.button-balanced.activated {
+.button.button-assertive.active, .button.button-assertive.activated {
   border-color: #a2a2a2;
   background-color: #ce0d0d; }
 
-.tabs-balanced > .tabs,
-.tabs.tabs-balanced {
+.tabs-assertive > .tabs,
+.tabs.tabs-assertive {
   background-color: #ce0d0d;
 }
 
-.bar.bar-balanced {
+.bar.bar-assertive {
   background-color: #ce0d0d;
+  border-color: #ce0d0d;
 }
 
 .alignLeft {
@@ -31,6 +32,19 @@
 vertical-align: middle;
 align-content: center;
 text-align: center;
+}
+
+.image-list-thumb {
+  width: 60px;
+  height: 60px;
+}
+
+.textAlignleft {
+	float: left;
+}
+
+.textAlignright {
+	float: right;
 }
 
 /*RED*/
@@ -50,18 +64,17 @@ text-align: center;
 
 .round-button {
     display:block;
-    width:70px;
-    height:70px;
-    line-height:70px;
+    width:50px;
+    height:50px;
+    line-height:50px;
     border: 2px solid #f5f5f5;
     border-radius: 50%;
     color:#f5f5f5;
     text-align:center;
     text-decoration:none;
-
     box-shadow: 0 0 3px gray;
-    font-size:20px;
-    font-weight:bold;
+    font-size:10px;
+    /* font-weight:bold; */
 
 }
 .round-button:hover {
@@ -116,7 +129,7 @@ offset: 0;
 
 
 .roundButtonAlignment {
-  width: 73%;
+  width: 65%;
   margin-left: auto;
 }
 

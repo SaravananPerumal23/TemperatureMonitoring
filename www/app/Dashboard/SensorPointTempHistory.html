@@ -51,7 +51,8 @@
         <div class="headerItem col">Quantity</div>
       </div>
       <div ng-repeat="dpci in dpciDetails | filter: {SensorPointID: sensorPointID}" >
-      <div class="row" ng-class-odd="'evenitem'" ng-class-even="'evenitem'">
+        <div class="row">
+          <!--  ng-class-odd="'evenitem'" ng-class-even="'evenitem'" -->
         <div class="col">{{dpci.DPCI}}</div>
         <div class="col">{{dpci.ItemDesc}}</div>
         <div class="col">{{dpci.Quantity}}</div>

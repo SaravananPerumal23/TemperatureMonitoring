@@ -5,16 +5,19 @@
   <ion-content ng-controller="DashboardController">
     <div class="card" ng-repeat="UnitInfo in unitReponseData.UnitItems">
       <div class="item item-divider">
-        {{UnitInfo.Desc}}
+        <p class="textAlignleft">{{UnitInfo.Desc}}</p>
+        <p style="font-size: 11px" class="textAlignright">Range {{getThresholdTemp(UnitInfo.Desc)}}</p>
       </div>
-      <!--{{UnitInfo.UnitID}} <div class="alignLeft" ng-repeat="sensorTemp in sensorPointResponseData | searchField: 'ParentID' | filter: UnitInfo.UnitID"> -->
       <div class="alignLeft" ng-repeat="sensorTemp in sensorPointResponseData.SPointItems | filterBy: ['ParentID']: UnitInfo.UnitID">
-        <div>
-          <h3 style="align-content: right-side">{{sensorTemp.Desc}} </h3>
+        <div style="font-size:11px">
+          <img ng-src="{{setImage(sensorTemp.Desc)}}" class="image-list-thumb"/>
+          <!-- <h3 style="align-content: right-side">{{sensorTemp.Desc}}</h3> -->
           <div class="roundButtonAlignment">
-          <a class="round-button round-button-{{((sensorTemp.LastTempValueC/TEMPERATURE_CUTOFF.cutoffValue) * 100) >= 15 ? 15 : ((sensorTemp.LastTempValueC/TEMPERATURE_CUTOFF.cutoffValue) * 100) >=10 ? 10 : 5 }}"
-            ng-click="onClick(sensorTemp.SPointID, sensorTemp.Desc)">{{sensorTemp.LastTempValueC}}</a>
+            <!-- <a class="round-button round-button-{{((sensorTemp.LastTempValueC/TEMPERATURE_CUTOFF.cutoffValue) * 100) >= 15 ? 15 : ((sensorTemp.LastTempValueC/TEMPERATURE_CUTOFF.cutoffValue) * 100) >=10 ? 10 : 5 }}"   -->
+            <a class="round-button round-button-{{((sensorTemp.LastTempValueC/getThresholdTemp) * 100) >= 15 ? 15 : ((sensorTemp.LastTempValueC/getThresholdTemp) * 100) >=10 ? 10 : 5 }}"
+              ng-click="onClick(sensorTemp.SPointID, sensorTemp.Desc)">{{sensorTemp.LastTempValueC}}°F</a>
           </div>
+          Range {{getThresholdTemp(UnitInfo.Desc)}}
         </div>
       </div>
     </div>

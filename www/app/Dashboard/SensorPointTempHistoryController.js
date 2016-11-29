@@ -60,7 +60,7 @@ angular.forEach(data, function(filterObj , filterIndex){
       angular.forEach(filterObj, function(value , key){
         if(key == fieldField){
           if(key == "UTC") {
-            value = $filter('date')(value, "HH:mm:ss")
+            value = $filter('date')(value, "HH:mm")
           }
           arr.push(value);
           return;
