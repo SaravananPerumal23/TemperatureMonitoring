@@ -7,7 +7,7 @@
     </ion-nav-buttons>
     <ion-segment [(ngModel)]="relationship" color="primary">
 
-    <ion-content ng-controller="SensorPointTempHistoryController">
+    <ion-content class="padding" ng-controller="SensorPointTempHistoryController">
 
       <ti-segmented-control on-select="buttonClicked($index)">
           <ti-segmented-control-button class="button-positive" title="'3 Hours'" selected></ti-segmented-control-button>
@@ -46,17 +46,17 @@
     </div>
     <div>
       <div class="row">
-        <div class="headerItem col">DPCI</div>
+        <div class="headerItem col">ItemID</div>
         <div class="headerItem col">Item Description</div>
         <div class="headerItem col">Quantity</div>
       </div>
-      <div ng-repeat="dpci in dpciDetails | filter: {SensorPointID: sensorPointID}" >
-        <div class="row">
-          <!--  ng-class-odd="'evenitem'" ng-class-even="'evenitem'" -->
-        <div class="col">{{dpci.DPCI}}</div>
-        <div class="col">{{dpci.ItemDesc}}</div>
-        <div class="col">{{dpci.Quantity}}</div>
-      </div>
+      <div ng-repeat="item in itemDetails | filter: {SensorPointID: sensorPointID}" >
+        <div class="row" ng-click="onClick(item.ItemID, item.ItemDesc, item.Quantity)">
+            <!--   ng-class-odd="'evenitem'" ng-class-even="'evenitem'" -->
+          <div class="col">{{item.ItemID}}</div>
+          <div class="col">{{item.ItemDesc}}</div>
+          <div class="col">{{item.Quantity}}</div>
+        </div>
     </div>
   </div>
     </ion-content>

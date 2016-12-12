@@ -2,10 +2,9 @@ angular.module('ionicCharts')
 
 .controller("ActionableTaskController", function($scope, $http, $state,
   $filter, ApiEndpoint, dataFactory, sessionToken, LoginService,
-  SensorPointDetails, JsonData) {
+  SensorPointDetails, ItemInfo, JsonData) {
 
 $scope.working = false;
-$scope.dpciDetails = JsonData.UnitItems;
 
 $scope.logout = function() {
   LoginService.logout();
@@ -20,7 +19,9 @@ $scope.back = function() {
 };
 
 $scope.$watch(function () {
-  $scope.sensorPointID = SensorPointDetails.getSensorPointID().SensorPointID;
-  $scope.sensorPointDesc = SensorPointDetails.getSensorPointID().SensorPointDesc;
+  $scope.itemID = ItemInfo.getItemInfo().itemID;
+  $scope.itemDesc = ItemInfo.getItemInfo().itemDesc;
+  $scope.itemQuantity = ItemInfo.getItemInfo().itemQuantity;
 });
+
 });

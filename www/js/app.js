@@ -27,6 +27,24 @@ angular.module('ionicCharts', ['ionic', 'chart.js', 'ti-segmented-control', 'ang
    };
  })
 
+ .factory('ItemInfo', function(){
+   var itemData = {
+         itemID: '',
+         itemDesc: '',
+         itemQuantity: ''
+    };
+    return {
+        getItemInfo: function () {
+            return itemData;
+        },
+        setItemInfo: function (itemID, itemDesc, itemQuantity) {
+            itemData.itemID = itemID;
+            itemData.itemDesc = itemDesc;
+            itemData.itemQuantity = itemQuantity;
+        }
+    };
+  })
+
  .factory('sessionToken', function(){
    var sessionToken = {
         sessionTokenID: ''
@@ -86,6 +104,15 @@ angular.module('ionicCharts', ['ionic', 'chart.js', 'ti-segmented-control', 'ang
         'dash-tab': {
           templateUrl: 'app/Dashboard/SensorPointTempHistory.html',
           controller: 'SensorPointTempHistoryController'
+        }
+    }
+  })
+  .state('main.action', {
+    url: 'main/action',
+    views: {
+        'dash-tab': {
+          templateUrl: 'app/Dashboard/ActionableTask.html',
+          controller: 'ActionableTaskController'
         }
     }
   })

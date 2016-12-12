@@ -5,8 +5,7 @@
   <ion-content ng-controller="DashboardController">
     <div class="card" ng-repeat="UnitInfo in unitReponseData.UnitItems">
       <div class="item item-divider">
-        <p class="textAlignleft">{{UnitInfo.Desc}}</p>
-        <p style="font-size: 11px" class="textAlignright">Range {{getThresholdTemp(UnitInfo.Desc)}}</p>
+        {{UnitInfo.Desc}}
       </div>
       <div class="alignLeft" ng-repeat="sensorTemp in sensorPointResponseData.SPointItems | filterBy: ['ParentID']: UnitInfo.UnitID">
         <div style="font-size:11px">

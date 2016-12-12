@@ -5,4 +5,23 @@
     <ion-nav-buttons side="right">
       <button class="button icon-left ion-log-out button-stable" ng-click="logout()">Logout</button>
     </ion-nav-buttons>
+
+  <ion-content class="padding" ng-controller="ActionableTaskController">
+    <ion-card (tap)="tapEvent($event)">
+    <ion-item>
+      Item ID:  {{itemID}}
+    </ion-item>
+    <ion-item>
+      Item Description:  {{itemDesc}}
+    </ion-item>
+    <ion-item>
+      Item Quantity:  {{itemQuantity}}
+    </ion-item>
+  </ion-card>
+  <ion-card style="align: center;">
+    <button class="button button-block button-assertive" ng-click="login(data)">Move Item</button>
+    <button class="button button-block button-assertive" ng-click="login(data)">Price Change</button>
+    <button class="button button-block button-assertive" ng-click="login(data)">Make Defective</button>
+  </ion-card>
+</ion-content>
 </ion-view>

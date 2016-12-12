@@ -2,10 +2,10 @@ angular.module('ionicCharts')
 
 .controller("SensorPointTempHistoryController", function($scope, $http, $state,
   $filter, ApiEndpoint, dataFactory, sessionToken, LoginService,
-  SensorPointDetails, JsonData) {
+  SensorPointDetails, ItemInfo, JsonData) {
 
 $scope.working = false;
-$scope.dpciDetails = JsonData.UnitItems;
+$scope.itemDetails = JsonData.UnitItems;
 
 $scope.logout = function() {
   LoginService.logout();
@@ -131,6 +131,12 @@ $scope.buttonClicked = function(index) {
   d2.setHours( d1.getHours() - noOfHours );
   $scope.previousDate = $filter('date')(d2, "yyyy-MM-ddTHH:mm:ss");
   $scope.getChart();
+
+  $scope.onClick = function(itemID, itemDesc, itemQuantity, evt) {
+    ItemInfo.setItemInfo(itemID, itemDesc, itemQuantity);
+    $state.go('main.action');
+  };
+
 }
 $scope.buttonClicked(0);
 });
