@@ -1,4 +1,4 @@
-angular.module('ionicCharts')
+angular.module('temperatureMonitoring')
 
 .service('LoginService', function($q, $http, ApiEndpoint, sessionToken, USER_ROLES) {
   var LOCAL_TOKEN_KEY = '';

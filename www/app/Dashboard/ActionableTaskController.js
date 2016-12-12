@@ -1,4 +1,4 @@
-angular.module('ionicCharts')
+angular.module('temperatureMonitoring')
 
 .controller("ActionableTaskController", function($scope, $http, $state,
   $filter, ApiEndpoint, dataFactory, sessionToken, LoginService,

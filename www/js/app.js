@@ -1,4 +1,4 @@
-angular.module('ionicCharts', ['ionic', 'chart.js', 'ti-segmented-control', 'angular.filter'])
+angular.module('temperatureMonitoring', ['ionic', 'chart.js', 'ti-segmented-control', 'angular.filter'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {

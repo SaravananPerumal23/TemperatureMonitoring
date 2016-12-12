@@ -1,4 +1,4 @@
-# IonicCharts
+# TemperatureMonitoring with IonicCharts
 
 To start with install Node.Js from the website https://nodejs.org/en/
 
@@ -67,7 +67,7 @@ Deploys the Ionic app on specified platform devices. If a device is not found it
 $ ionic run ios [options]
 
 
-Instructions for Running this IonicCharts application
+Instructions for Running this TemperatureMonitoring application
 ======================================================
 Use the below command to install the required dependencies
 

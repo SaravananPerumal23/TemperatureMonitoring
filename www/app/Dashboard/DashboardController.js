@@ -1,4 +1,4 @@
-angular.module('ionicCharts')
+angular.module('temperatureMonitoring')
 
 .controller("DashboardController", function($scope, $http, $state, $ionicPopup, SensorPointDetails, dataFactory, ApiEndpoint, sessionToken, LoginService, TEMPERATURE_CUTOFF, TEMPERATURE_THRESHOLD) {
 

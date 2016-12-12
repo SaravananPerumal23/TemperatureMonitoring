@@ -1,4 +1,4 @@
-angular.module('ionicCharts')
+angular.module('temperatureMonitoring')
 .constant('AUTH_EVENTS', {
   notAuthenticated: 'auth-not-authenticated',
   notAuthorized: 'auth-not-authorized'

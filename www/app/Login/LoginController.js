@@ -1,4 +1,4 @@
-angular.module('ionicCharts')
+angular.module('temperatureMonitoring')
 
 .controller('MainController', function($scope, $state, $ionicPopup, LoginService, AUTH_EVENTS) {
   $scope.username = LoginService.username();

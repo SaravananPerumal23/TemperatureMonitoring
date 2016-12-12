@@ -4,9 +4,9 @@
     "url": "git+ssh://git@github.com/npm/npm.git"
   },
   "license": "Apache-2.0",
-  "name": "ioniccharts",
+  "name": "temperatureMonitoring",
   "version": "1.0.0",
-  "description": "IonicCharts: An Ionic project",
+  "description": "TemperatureMonitoring: An Ionic project",
   "dependencies": {
     "angular-filter": "^0.5.11",
     "gulp": "^3.5.6",
