@@ -22,13 +22,33 @@
 }
 
 .alignLeft {
-  float: left;
-  width: 180px;
+  float: left; 
+  text-align: center; 
+  clear: left;
+
+  /*float: left;
+  width: 50%;
   padding: 10px;
   text-align: center;
+  border: 2px solid black;
+  clear: left; */
 }
 .alignLeft.h2 {
-  width: 180px;
+  width: 50%;
+vertical-align: middle;
+align-content: center;
+text-align: center;
+}
+
+.alignRight {
+  float: right;
+  /*width: 50%;*/
+  padding: 10px;
+  text-align: center;
+  clear: left;
+}
+.alignRight.h2 {
+
 vertical-align: middle;
 align-content: center;
 text-align: center;
@@ -130,7 +150,10 @@ offset: 0;
 
 .roundButtonAlignment {
   width: 65%;
-  margin-left: auto;
+  padding-left: 25%;
+  content-align: center;
+  /*margin-left: auto;*/
+
 }
 
 /*.odd {

@@ -7,8 +7,9 @@
       <div class="item item-divider">
         {{UnitInfo.Desc}}
       </div>
-      <div class="alignLeft" ng-repeat="sensorTemp in sensorPointResponseData.SPointItems | filterBy: ['ParentID']: UnitInfo.UnitID">
-        <div style="font-size:11px">
+      <div class="alignLeft">
+      <div class="alignRight" ng-repeat="sensorTemp in sensorPointResponseData.SPointItems | filterBy: ['ParentID']: UnitInfo.UnitID">
+        <div style="font-size:11px;">
           <img ng-src="{{setImage(sensorTemp.Desc)}}" class="image-list-thumb"/>
           <!-- <h3 style="align-content: right-side">{{sensorTemp.Desc}}</h3> -->
           <div class="roundButtonAlignment">
@@ -19,6 +20,7 @@
           Range {{getThresholdTemp(UnitInfo.Desc)}}
         </div>
       </div>
+    </div>
     </div>
   </ion-content>
 </ion-view>
